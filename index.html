@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Activity #10</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="design.css">
+
+</head>
+<body>
+&nbsp;
+<div class="calculator">
+    <input type="text" id="display" onkeypress="handleKeyPress(event)" placeholder="">
+    <div>
+        <input type="button" value="7" onclick="appendToDisplay('7')">
+        <input type="button" value="8" onclick="appendToDisplay('8')">
+        <input type="button" value="9" onclick="appendToDisplay('9')">
+
+        <input type="button" value="+" onclick="appendToDisplay('+')"> 
+ 
+        <input type="button" value="4" onclick="appendToDisplay('4')">
+        <input type="button" value="5" onclick="appendToDisplay('5')">
+        <input type="button" value="6" onclick="appendToDisplay('6')">        
+        
+        <input type="button" value="-" onclick="appendToDisplay('-')"> 
+
+        <input type="button" value="1" onclick="appendToDisplay('1')">
+        <input type="button" value="2" onclick="appendToDisplay('2')">
+        <input type="button" value="3" onclick="appendToDisplay('3')">
+
+        <input type="button" value="*" onclick="appendToDisplay('*')"> 
+
+        <input type="button" value="A" data-toggle="modal" data-target="#showDeveloperInfo">
+        <input type="button" value="0" onclick="appendToDisplay('0')">    
+        <input type="button" value="B" onclick="showAppInfo()">
+
+        <input type="button" value="/" onclick="appendToDisplay('/')"> 
+    </div>
+
+    <div style="text-align: right;">
+        <input type="button" value="=" onclick="calculate()"> 
+    </div>
+
+    <div style="text-align: center;">
+        <input type="button" value="Clear" style="width: 100px;" onclick="ClearInput()">
+    </div>
+
+</div>
+
+<div class="modal fade" id="showDeveloperInfo" tabindex="-1" role="dialog" aria-labelledby="showDeveloperInfoH" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="showDeveloperInfoT">Developer Info</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <table>              
+                <tr>
+                <td>Name</td>
+                <th>Jean May D. Cuezon</th>
+                </tr>
+                <tr>
+                <td>Email</td>
+                <th>jeanmay.cuezon@nmsc.edu.ph</th>
+                </tr>
+                <tr>
+                <td>Mobile #</td>
+                <th>09304157960</th>
+                </tr>
+            </table>     
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="functions.js"></script>
+
+</body>
+</html>
