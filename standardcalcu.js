@@ -1,59 +1,72 @@
-let currentInput = "";
-let operator = "";
-let firstNumber = "";
+// Elements
+let display = document.getElementById("display");
+let formula = document.getElementById("formula");
 
-function append(number){
-    if(currentInput === "0"){
-        currentInput = number;
-    }else{
-        currentInput += number;
+let firstNumber = null;
+let operator = null;
+let waitingForSecond = false;
+let justCalculated = false;
+
+// Map operator to display symbols
+const displayOperator = {
+    '+': '+',
+    '-': '−',
+    '*': '×',
+    '/': '÷'
+};
+
+// Append numbers
+function append(value) {
+    if (justCalculated) {
+        display.value = value;
+        formula.textContent = "";
+        justCalculated = false;
+        waitingForSecond = false;
+    } else if (waitingForSecond) {
+        display.value = value;
+        waitingForSecond = false;
+    } else {
+        display.value = display.value === "0" ? value : display.value + value;
     }
-
-    document.getElementById("display").value = currentInput;
 }
 
-function setOperator(op){
-    firstNumber = currentInput;
+// Set operator
+function setOperator(op) {
+    if (firstNumber === null) {
+        firstNumber = parseFloat(display.value);
+        formula.textContent = firstNumber + displayOperator[op];
+    } else if (!waitingForSecond) {
+        firstNumber = operate(firstNumber, parseFloat(display.value), operator);
+        display.value = firstNumber;
+        formula.textContent = firstNumber + displayOperator[op];
+    } else {
+        // change operator without changing number
+        formula.textContent = firstNumber + displayOperator[op];
+    }
     operator = op;
-    currentInput = "";
-
-    document.getElementById("formula").innerText = firstNumber + " " + op;
+    waitingForSecond = true;
+    justCalculated = false;
 }
 
-function calculate(){
-
-    let secondNumber = currentInput;
-    let result = 0;
-
-    if(operator === "+"){
-        result = parseFloat(firstNumber) + parseFloat(secondNumber);
+// Calculate
+function calculate() {
+    if (operator !== null && firstNumber !== null) {
+        let secondNumber = parseFloat(display.value);
+        let result = operate(firstNumber, secondNumber, operator);
+        formula.textContent = firstNumber + displayOperator[operator] + secondNumber + "=";
+        display.value = result;
+        firstNumber = result;
+        operator = null;
+        waitingForSecond = false;
+        justCalculated = true;
     }
-
-    if(operator === "-"){
-        result = parseFloat(firstNumber) - parseFloat(secondNumber);
-    }
-
-    if(operator === "*"){
-        result = parseFloat(firstNumber) * parseFloat(secondNumber);
-    }
-
-    if(operator === "/"){
-        result = parseFloat(firstNumber) / parseFloat(secondNumber);
-    }
-
-    document.getElementById("formula").innerText =
-        firstNumber + " " + operator + " " + secondNumber + " =";
-
-    document.getElementById("display").value = result;
-
-    currentInput = result;
 }
 
-function clearAll(){
-    currentInput = "";
-    operator = "";
-    firstNumber = "";
-
-    document.getElementById("display").value = "0";
-    document.getElementById("formula").innerText = "";
-}
+// Clear all
+function clearAll() {
+    display.value = "0";
+    formula.textContent = "";
+    firstNumber = null;
+    operator = null;
+    waitingForSecond = false;
+    justCalculated = false;

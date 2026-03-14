@@ -22,14 +22,16 @@
 
     <!-- Display -->
     <div class="display-container">
+        <!-- Formula / history -->
         <div id="formula" style="text-align:right; font-size:18px; color:#666; min-height:24px;"></div>
+        <!-- Main display -->
         <input type="text" id="display" value="0" readonly>
     </div>
 
     <!-- Buttons -->
     <div class="container-fluid">
         <div class="row g-2">
-
+            <!-- Numbers -->
             <div class="col-3"><button class="btn calc-btn" onclick="append('7')">7</button></div>
             <div class="col-3"><button class="btn calc-btn" onclick="append('8')">8</button></div>
             <div class="col-3"><button class="btn calc-btn" onclick="append('9')">9</button></div>
@@ -58,7 +60,6 @@
             <div class="col-6">
                 <button class="btn btn-dark w-100 mt-2" data-bs-toggle="modal" data-bs-target="#applicationModal">B</button>
             </div>
-
         </div>
     </div>
 
@@ -76,20 +77,8 @@
       </div>
 
       <div class="modal-body">
-        <table class="table">
-            <tr>
-                <td>Name</td>
-                <th>Jean May D. Cuezon</th>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <th>jeanmay.cuezon@nmsc.edu.ph</th>
-            </tr>
-            <tr>
-                <td>Course #</td>
-                <th>MSIT</th>
-            </tr>
-        </table>
+        Developer:Jean May D. Cuezon <br>
+        Course: IT 214 Specialization 1
       </div>
 
     </div>
@@ -97,38 +86,19 @@
 </div>
 
 <!-- Application Modal -->
-<div class="modal fade" id="applicationModal" tabindex="-1">
+<div class="modal fade" id="applicationModal">
   <div class="modal-dialog">
     <div class="modal-content">
 
       <div class="modal-header">
         <h5 class="modal-title">About the Application</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
       <div class="modal-body">
-        <table class="table table-bordered">
-          <tr>
-            <td><strong>Application</strong></td>
-            <td>Standard Calculator</td>
-          </tr>
-          <tr>
-            <td><strong>Supported Operations</strong></td>
-            <td>Addition (+), Subtraction (−), Multiplication (×), Division (÷)</td>
-          </tr>
-          <tr>
-            <td><strong>Version</strong></td>
-            <td>1.0</td>
-          </tr>
-          <tr>
-            <td><strong>Purpose</strong></td>
-            <td>To perform basic arithmetic calculations quickly and easily.</td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+        Application:  Standard Calculator supporting the four basic operations: <br>
+        addition (+), subtraction (−)<br>
+       multiplication (×), and division (÷).  
       </div>
 
     </div>
