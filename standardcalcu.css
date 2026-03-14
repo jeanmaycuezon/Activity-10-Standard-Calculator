@@ -14,7 +14,7 @@ body {
     background: white;
     padding: 15px;
     border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 15px rgba(89, 156, 17, 0.2);
 }
 
 /* Display container */
@@ -30,7 +30,7 @@ body {
 #formula {
     text-align: right;
     font-size: 18px;
-    color: #666;
+    color: #0ba2c4;
     min-height: 24px;
     max-height: 24px;
     overflow: hidden;
